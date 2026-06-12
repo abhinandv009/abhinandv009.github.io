@@ -616,7 +616,9 @@
     .contact-row-val{font-weight:500;font-size:.9rem}
 
     /* Form */
-    .contact-form {
+    
+	
+	.contact-form {
   position: relative; /* already set, just confirm */
 }
 
@@ -715,6 +717,74 @@
       margin-top:1.5rem;
     }
     .form-submit:hover{background:var(--blue-mid);box-shadow:0 0 25px rgba(37,99,235,.4)}
+	
+	/* ==================== COMING SOON LOCK ANIMATION ==================== */
+.contact-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-form:hover {
+  filter: brightness(0.85) saturate(0.7);
+}
+
+/* Overlay */
+.form-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+}
+
+.contact-form:hover .form-overlay {
+  display: flex;
+  opacity: 1;
+}
+
+/* Lock Animation */
+.form-overlay i {
+  font-size: 3.5rem;
+  color: var(--blue-mid);
+  animation: lockShake 2s infinite ease-in-out;
+}
+
+.form-overlay span {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Keyframes */
+@keyframes lockShake {
+  0%, 100% { transform: rotate(-8deg); }
+  25% { transform: rotate(8deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+/* Optional: Make inputs look disabled on hover */
+.contact-form:hover .form-input,
+.contact-form:hover .form-textarea {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: #444;
+  color: #888;
+}
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     .footer{
@@ -845,7 +915,7 @@
         <div class="stat-row">
           <div class="stat-box">
             <div class="stat-num glow">97%</div>
-            <div class="stat-lbl">Best Model Accuracy</div>
+            <div class="stat-lbl">Ensemble Model Accuracy</div>
           </div>
           <div class="stat-box">
             <div class="stat-num glow">12+</div>
@@ -857,7 +927,7 @@
           </div>
           <div class="stat-box">
             <div class="stat-num glow">2</div>
-            <div class="stat-lbl">Games in Development</div>
+            <div class="stat-lbl">Game in Development</div>
           </div>
         </div>
       </div>
@@ -907,7 +977,7 @@
         <div class="about-body">
           <p>I'm <strong>Abhinand V</strong>, an aspiring AI and game developer based in Kerala, India. I hold a Master of Computer Applications from Rajiv Gandhi Institute of Technology, where I focused on machine learning, computer vision, and software engineering.</p>
           <p>My work lives at the intersection of two passions: building <strong>intelligent systems</strong> that process and understand the real world, and crafting <strong>immersive game experiences</strong> that pull players into richly designed virtual ones.</p>
-          <p>On the AI side, I specialize in CNN-based architectures for medical imaging — my brain tumor detection model ensemble reached <strong>97% accuracy</strong> across 12 architectures. On the game side, I'm deep into Godot 4, building a football quiz game (FootIQ) and a full narrative football simulation with live world ticks and media feeds.</p>
+          <p>On the AI side, I specialize in CNN-based architectures for medical imaging — my brain tumor detection model ensemble reached <strong>97% accuracy</strong> across 12 architectures. On the game side, I'm now into Godot 4, building a football quiz game (FootIQ) and a full narrative football simulation with live world ticks and media feeds.</p>
           <p>I believe the best software feels inevitable — engineered with precision, but designed with empathy.</p>
         </div>
       </div>
@@ -974,7 +1044,7 @@
             <span class="tag">Featured</span>
           </div>
           <div class="proj-name">Brain Tumor Detection &amp; Classification</div>
-          <div class="proj-desc">Developed and rigorously benchmarked 12 CNN architectures — including VGG, ResNet, EfficientNet and custom models — for multi-class MRI tumor classification. Built an ensemble that hit <strong style="color:#60A5FA">97% accuracy</strong>, with a full frontend for clinical use.</div>
+          <div class="proj-desc">Developed and rigorously benchmarked 12 CNN architectures — including VGG, MobileNet, Xception and other models — for multi-class MRI tumor classification. Built an ensemble that hit <strong style="color:#60A5FA">97% accuracy</strong>, with a full frontend for easy use.</div>
           <div class="proj-footer">
             <div class="proj-stack">
               <span class="stack-pill">TensorFlow</span>
@@ -982,7 +1052,7 @@
               <span class="stack-pill">Python</span>
               <span class="stack-pill">HTML/CSS</span>
             </div>
-            <a href="#" class="proj-link">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://www.kaggle.com/code/abhinandv009/brain-tumor-classification-v3" class="proj-link">View on Kaggle <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </div>
         </div>
       </div>
@@ -1061,23 +1131,23 @@
           <div class="sg-title">AI / Machine Learning</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>Data Preprocessing &amp; Image Processing</span><span>95%</span></div>
+          <div class="skill-meta"><span>Data Preprocessing &amp; Image Processing</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:95%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>CNN Architecture Design</span><span>92%</span></div>
+          <div class="skill-meta"><span>CNN Architecture Design</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:92%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>Model Training &amp; Evaluation</span><span>90%</span></div>
+          <div class="skill-meta"><span>Model Training &amp; Evaluation</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>Ensemble Methods</span><span>88%</span></div>
+          <div class="skill-meta"><span>Ensemble Methods</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:88%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>Real-time Object Detection (YOLO)</span><span>82%</span></div>
+          <div class="skill-meta"><span>Real-time Object Detection (YOLO)</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:82%"></div></div>
         </div>
       </div>
@@ -1088,23 +1158,23 @@
           <div class="sg-title">Game Development</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>Godot 4 + GDScript</span><span>80%</span></div>
+          <div class="skill-meta"><span>Godot 4 + GDScript</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>Game Systems Design</span><span>78%</span></div>
+          <div class="skill-meta"><span>Game Systems Design</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:78%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>Simulation Architecture</span><span>75%</span></div>
+          <div class="skill-meta"><span>Simulation Architecture</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:75%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>Mobile 2D Game Design</span><span>72%</span></div>
+          <div class="skill-meta"><span>Mobile 2D Game Design</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:72%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>Resource-based Data Architecture</span><span>70%</span></div>
+          <div class="skill-meta"><span>Resource-based Data Architecture</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:70%"></div></div>
         </div>
       </div>
@@ -1115,15 +1185,15 @@
           <div class="sg-title">GenAI &amp; NLP</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>Prompt Engineering</span><span>88%</span></div>
+          <div class="skill-meta"><span>Prompt Engineering</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:88%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>LLM API Integration</span><span>85%</span></div>
+          <div class="skill-meta"><span>LLM API Integration</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:85%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>NLP Classification Models</span><span>80%</span></div>
+          <div class="skill-meta"><span>NLP Classification Models</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
         </div>
       </div>
@@ -1134,15 +1204,15 @@
           <div class="sg-title">Languages &amp; Tooling</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>Python</span><span>92%</span></div>
+          <div class="skill-meta"><span>Python</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:92%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>HTML / CSS / JavaScript</span><span>78%</span></div>
+          <div class="skill-meta"><span>HTML / CSS / JavaScript</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:78%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span>GDScript</span><span>80%</span></div>
+          <div class="skill-meta"><span>GDScript</span><span></span></div>
           <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
         </div>
       </div>
@@ -1150,7 +1220,7 @@
     </div>
 
     <!-- Tech Bubbles -->
-    <div class="eyebrow" style="margin-top:3.5rem">Technologies</div>
+    <div class="eyebrow" style="margin-top:3.5rem">Technologies Used</div>
     <div class="tech-grid">
       <div class="tech-bubble"><i class="fa-brands fa-python"></i> Python</div>
       <div class="tech-bubble"><i class="fa-solid fa-fire"></i> TensorFlow / Keras</div>
@@ -1206,21 +1276,21 @@
             <div class="contact-row-icon"><i class="fa-solid fa-envelope"></i></div>
             <div>
               <div class="contact-row-label">Email</div>
-              <div class="contact-row-val">abhinand009@gmail.com</div>
+              <div class="contact-row-val">abhinand@example.com</div>
             </div>
           </a>
-          <a href="#" class="contact-row">
+          <a href="https://www.linkedin.com/in/abhinand-v-b514a6298" target="_blank" class="contact-row">
             <div class="contact-row-icon"><i class="fa-brands fa-linkedin"></i></div>
             <div>
               <div class="contact-row-label">LinkedIn</div>
-              <div class="contact-row-val"><a href="https://www.linkedin.com/in/abhinand-v-b514a6298" target="_blank">LinkedIn/</a></div>
+              <div class="contact-row-val">linkedin.com</div>
             </div>
           </a>
-          <a href="#" class="contact-row">
+          <a href="https://github.com/abhinandv009/ "target="_blank" class="contact-row">
             <div class="contact-row-icon"><i class="fa-brands fa-github"></i></div>
             <div>
               <div class="contact-row-label">GitHub</div>
-              <div class="contact-row-val"><a href="https://github.com/abhinandv009/" target="_blank">Github/</a></div>
+              <div class="contact-row-val">github.com</div>
             </div>
           </a>
           <a href="#" class="contact-row">
