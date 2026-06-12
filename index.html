@@ -1234,33 +1234,35 @@
       </div>
 
       <div class="contact-form">
-         <div class="lock-overlay">
-          <i class="fa-solid fa-lock"></i>
-           <span>Coming Soon</span>
-         </div>
-        <div class="form-title">Send a message</div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">name</label>
-            <input class="form-input" type="text" placeholder="Your name" />
-          </div>
-          <div class="form-group">
-            <label class="form-label">email</label>
-            <input class="form-input" type="email" placeholder="you@example.com" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">subject</label>
-          <input class="form-input" type="text" placeholder="What's this about?" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">message</label>
-          <textarea class="form-textarea" placeholder="Tell me about your project or opportunity…"></textarea>
-        </div>
-        <button class="form-submit" onclick="handleSubmit(this)">
-          <i class="fa-solid fa-paper-plane"></i> Send Message
-        </button>
-      </div>
+  <!-- Overlay -->
+  <div class="form-overlay">
+    <i class="fa-solid fa-lock"></i>
+    <span>Coming Soon</span>
+  </div>
+
+  <div class="form-title">Send a message</div>
+  <div class="form-row">
+    <div class="form-group">
+      <label class="form-label">name</label>
+      <input class="form-input" type="text" placeholder="Your name" disabled />
+    </div>
+    <div class="form-group">
+      <label class="form-label">email</label>
+      <input class="form-input" type="email" placeholder="you@example.com" disabled />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="form-label">subject</label>
+    <input class="form-input" type="text" placeholder="What's this about?" disabled />
+  </div>
+  <div class="form-group">
+    <label class="form-label">message</label>
+    <textarea class="form-textarea" placeholder="Tell me about your project or opportunity…" disabled></textarea>
+  </div>
+  <button class="form-submit" disabled>
+    <i class="fa-solid fa-paper-plane"></i> Send Message
+  </button>
+</div>
     </div>
   </div>
 
