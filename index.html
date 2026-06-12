@@ -616,6 +616,53 @@
     .contact-row-val{font-weight:500;font-size:.9rem}
 
     /* Form */
+    .contact-form {
+  position: relative; /* already set, just confirm */
+}
+
+.lock-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px; /* match your card's border-radius */
+  background: rgba(5, 10, 20, 0.0);
+  backdrop-filter: blur(0px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, background 0.35s ease, backdrop-filter 0.35s ease;
+  z-index: 10;
+  cursor: default;
+}
+
+.contact-form:hover .lock-overlay {
+  opacity: 1;
+  pointer-events: all;
+  background: rgba(5, 10, 20, 0.82);
+  backdrop-filter: blur(6px);
+}
+
+.lock-overlay i {
+  font-size: 2.25rem;
+  color: #60A5FA;
+  animation: none;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.contact-form:hover .lock-overlay i {
+  transform: scale(1.15);
+}
+
+.lock-overlay span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #94A3B8;
+}
     .contact-form{
       background:var(--bg-card);
       border:1px solid var(--border);
@@ -1187,6 +1234,10 @@
       </div>
 
       <div class="contact-form">
+         <div class="lock-overlay">
+          <i class="fa-solid fa-lock"></i>
+           <span>Coming Soon</span>
+         </div>
         <div class="form-title">Send a message</div>
         <div class="form-row">
           <div class="form-group">
